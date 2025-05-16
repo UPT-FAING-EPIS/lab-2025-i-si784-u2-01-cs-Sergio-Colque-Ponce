@@ -12,8 +12,8 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
-    - name: Install DocFx
-      run: dotnet tool install -g docfx
+    - name: Init DocFx
+      run: dotnet tool update -g docfx
 
     - name: Restore & Build project
       run: |
@@ -58,7 +58,9 @@ jobs:
         docfx docfx.json
 
     - name: Publicar en GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
+      uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: /_site
+        destination_dir: docfx # subdirectory for the report on ghpages
+        keep_files: true  # for dont cleaned any sites
