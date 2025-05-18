@@ -6,6 +6,9 @@ on: push
 jobs:
   build-and-deploy-docs:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: MyMath
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -24,23 +27,24 @@ jobs:
 
     - name: Restore & Build project
       run: |
-        cd MyMath
         dotnet restore Math.Lib/Math.Lib.csproj
         dotnet build Math.Lib/Math.Lib.csproj --configuration Release
     - name: Generar diagrama de clases con dll2mmd
       run: |
-        cd MyMath
         dll2mmd -f Math.Lib/bin/Release/net8.0/Math.Lib.dll -o disenio.md
+    - name: Generate coverage Report
+      run: |
+        dotnet test --collect:"XPlat Code Coverage"
+        dotnet tool install -g dotnet-reportgenerator-globaltool
+        reportgenerator "-reports:./*/*/*/coverage.cobertura.xml" "-targetdir:Cobertura" -reporttypes:MarkdownSummaryGithub
     - name: Inicializar DocFX
       run: |
-          cd MyMath
           docfx init -y
     - name: Limpiar el directorio docs
       run: |
-          rm -rf MyMath/docs/*
+          rm -rf docs/*
     - name: Modificar archivo docfx.json
       run: |
-        cd MyMath
         cat > docfx.json <<EOF
         {
           "$schema": "https://raw.githubusercontent.com/dotnet/docfx/main/schemas/docfx.schema.json",
@@ -64,7 +68,8 @@ jobs:
                   "**/*.{md,yml}"
                 ],
                 "exclude": [
-                  "_site/**"
+                  "_site/**",
+                  "Cobertura/index.html"
                 ]
               }
             ],
@@ -89,16 +94,16 @@ jobs:
           }
         }
         EOF
+    - name: VER JSON
+      run: cat docfx.json
     - name: Modificar archivo toc.yml
       run: |
-        cd MyMath
         cat > toc.yml <<EOF
         - name: Docs
           href: docs/
         EOF
     - name: Modificar archivo index.md
       run: |
-        cd MyMath
         cat > index.md <<EOF
         ---
         _layout: landing
@@ -106,13 +111,14 @@ jobs:
 
         # This is the **HOMEPAGE**.
 
+        ## [Pruebas HTML](Cobertura/index.html)
+
         ## [Diagrama de Clases](disenio.md)
 
-        ## [Pruebas](Cobertura/SummaryGithub.md)
+        ## [Pruebas Markdown](Cobertura/SummaryGithub.md)
         EOF
     - name: Generar documentación
       run: |
-        cd MyMath
         docfx metadata docfx.json
         docfx build
     - name: Publicar en GitHub Pages
@@ -120,3 +126,4 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: MyMath/_site
+        keep_files: true

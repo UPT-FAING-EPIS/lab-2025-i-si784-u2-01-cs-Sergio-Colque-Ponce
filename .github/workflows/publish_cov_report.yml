@@ -23,12 +23,12 @@ jobs:
     - name: Generate coverage Report
       run: |
         cd MyMath
-        reportgenerator "-reports:./*/*/*/coverage.cobertura.xml" "-targetdir:Cobertura" -reporttypes:MarkdownSummaryGithub
-    #     reportgenerator "-reports:./*/*/*/coverage.cobertura.xml" "-targetdir:Cobertura" -reporttypes:HTML
-    # - name: Deploy coverage report to GitHub Pages
-    #   uses: peaceiris/actions-gh-pages@v4
-    #   with:
-    #     github_token: ${{ secrets.GITHUB_TOKEN }}
-    #     publish_dir: MyMath/Cobertura
-    #     destination_dir: cobertura
-    #     keep_files: true  
+        reportgenerator "-reports:./*/*/*/coverage.cobertura.xml" "-targetdir:Cobertura" -reporttypes:HTML
+        ls Cobertura
+    - name: Deploy coverage report to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: MyMath/Cobertura
+        destination_dir: Cobertura
+        keep_files: true 
