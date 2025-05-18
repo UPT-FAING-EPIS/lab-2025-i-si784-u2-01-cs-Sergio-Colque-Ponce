@@ -36,7 +36,7 @@ jobs:
             --source "https://nuget.pkg.github.com/${{ github.actor }}/index.json" \
             --api-key ${{ secrets.NUGET_API_KEY }}
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: v2022073503
           name: Release v2022073503
