@@ -22,7 +22,8 @@ jobs:
       - name: Restore dependencies && Build solution
         run: |
           cd MyMath
-          dotnet build --configuration Release --no-restore
+          dotnet restore
+          dotnet build --configuration Release
 
       - name: Pack NuGet package
         run: dotnet pack MyMath/Math.Lib/Math.Lib.csproj --configuration Release -p:PackageVersion=2022073503
