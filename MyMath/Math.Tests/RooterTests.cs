@@ -5,6 +5,12 @@ namespace Math.Tests
     [TestClass]
     public class RooterTests
     {
+
+        [TestMethod]
+        public void TestMethod1()
+        {
+        }
+
         [TestMethod]
         public void BasicRooterTest()
         {
@@ -52,14 +58,15 @@ namespace Math.Tests
             try
             {
                 rooter.SquareRoot(-10);
+                Assert.Fail("Se esperaba una excepcion ArgumentOutOfRangeException");
             }
             catch (System.ArgumentOutOfRangeException ex)
             {
-                StringAssert.Contains(ex.Message, "El valor ingresado es invalido");
+                StringAssert.Contains(ex.Message, "El valor ingresado es invalido, solo se puede ingresar números positivos");
                 // Assert.AreEqual("El valor ingresado es invalido, solo se puede ingresar números positivos", ex.Message);
                 return;
             }
-            Assert.Fail();
+            // Assert.Fail();
         }        
 
     }
