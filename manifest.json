@@ -32,6 +32,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "docs/Math.Lib.Class1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/Math.Lib.Class1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Math.Lib.Class1",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "docs/Math.Lib.Rooter.yml",
       "output": {
         ".html": {
@@ -70,6 +84,20 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Math.Tests.RooterTests",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "docs/Math.Tests.UnitTest1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/Math.Tests.UnitTest1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Math.Tests.UnitTest1",
       "Summary": null
     },
     {

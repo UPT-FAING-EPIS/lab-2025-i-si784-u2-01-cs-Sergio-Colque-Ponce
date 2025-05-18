@@ -7,6 +7,12 @@ references:
   commentId: N:Math.Lib
   fullName: Math.Lib
   nameWithType: Math.Lib
+- uid: Math.Lib.Class1
+  name: Class1
+  href: docs/Math.Lib.Class1.html
+  commentId: T:Math.Lib.Class1
+  fullName: Math.Lib.Class1
+  nameWithType: Class1
 - uid: Math.Lib.Rooter
   name: Rooter
   href: docs/Math.Lib.Rooter.html
@@ -93,3 +99,22 @@ references:
   isSpec: "True"
   fullName: Math.Tests.RooterTests.RooterValueRange
   nameWithType: RooterTests.RooterValueRange
+- uid: Math.Tests.UnitTest1
+  name: UnitTest1
+  href: docs/Math.Tests.UnitTest1.html
+  commentId: T:Math.Tests.UnitTest1
+  fullName: Math.Tests.UnitTest1
+  nameWithType: UnitTest1
+- uid: Math.Tests.UnitTest1.TestMethod1
+  name: TestMethod1()
+  href: docs/Math.Tests.UnitTest1.html#Math_Tests_UnitTest1_TestMethod1
+  commentId: M:Math.Tests.UnitTest1.TestMethod1
+  fullName: Math.Tests.UnitTest1.TestMethod1()
+  nameWithType: UnitTest1.TestMethod1()
+- uid: Math.Tests.UnitTest1.TestMethod1*
+  name: TestMethod1
+  href: docs/Math.Tests.UnitTest1.html#Math_Tests_UnitTest1_TestMethod1_
+  commentId: Overload:Math.Tests.UnitTest1.TestMethod1
+  isSpec: "True"
+  fullName: Math.Tests.UnitTest1.TestMethod1
+  nameWithType: UnitTest1.TestMethod1
