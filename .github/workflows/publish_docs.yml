@@ -109,7 +109,7 @@ jobs:
         ## [Diagrama de Clases](disenio.md)
 
         ## [Pruebas](Cobertura/SummaryGithub.md)
-        EOF    
+        EOF
     - name: Generar documentación
       run: |
         cd MyMath
