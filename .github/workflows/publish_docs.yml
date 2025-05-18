@@ -61,6 +61,6 @@ jobs:
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: /_site
+        publish_dir: _site
         destination_dir: docfx # subdirectory for the report on ghpages
         keep_files: true  # for dont cleaned any sites
