@@ -15,9 +15,7 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
-        env:
-          NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+        
       - name: Restore dependencies && Build solution
         run: |
           cd MyMath
@@ -25,14 +23,14 @@ jobs:
           dotnet build --configuration Release
 
       - name: Pack NuGet package
-        run: dotnet pack Math.Lib/Math.Lib.csproj -c Release -p:PackageVersion=202.207.3503
+        run: dotnet pack MyMath/Math.Lib/Math.Lib.csproj -c Release -p:PackageVersion=202.207.3503
       - name: NuGet sources
         run: dotnet nuget list source
       - name: Push NuGet package to GitHub Packages
-        run: dotnet nuget push Math.Lib/bin/Release/Math.Lib.Sergio.Colque.202.207.3503.nupkg --source "https://nuget.pkg.github.com/UPT-FAING-EPIS/index.json" --api-key ${{ secrets.PACKAGE_NUGET }}
+        run: dotnet nuget push MyMath/Math.Lib/bin/Release/Math.Lib.Sergio.Colque.202.207.3503.nupkg --skip-duplicate --source "https://nuget.pkg.github.com/UPT-FAING-EPIS/index.json" --api-key ${{ secrets.PACKAGE_NUGET }}
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v202.207.3503
-          name: Release v202.207.3503
+          tag_name: v2022073503
+          name: Release v2022073503
           files: "**/*.nupkg"
