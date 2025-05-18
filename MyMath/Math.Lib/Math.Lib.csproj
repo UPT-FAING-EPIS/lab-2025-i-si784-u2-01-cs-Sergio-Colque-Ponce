@@ -1,9 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <PackageId>Math.Lib.Sergio.Colque</PackageId>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <RepositoryUrl>https://github.com/UPT-FAING-EPIS/lab-2025-i-si784-u2-01-cs-Sergio-Colque-Ponce</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/UPT-FAING-EPIS/lab-2025-i-si784-u2-01-cs-Sergio-Colque-Ponce</PackageProjectUrl>
   </PropertyGroup>
 
 </Project>
